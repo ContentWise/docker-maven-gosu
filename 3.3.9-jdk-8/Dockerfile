@@ -20,10 +20,9 @@ RUN curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/dow
     && rm /usr/local/bin/gosu.asc \
     && chmod +x /usr/local/bin/gosu
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-
 ENV HOME=/home/user
 RUN mkdir -p $HOME
 
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["echo","-e","Example usage:\n\n\tdocker run --rm -it -e LOCAL_USER_ID=`id -u` -v `pwd`:/workdir -w /workdir contentwisetv/maven-gosu mvn clean install\n"]

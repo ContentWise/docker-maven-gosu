@@ -8,4 +8,6 @@ USER_ID=${LOCAL_USER_ID:-9001}
 
 useradd --shell /bin/bash -u $USER_ID -o -c "" -M -d $HOME user
 
+chown user:user $HOME
+
 exec /usr/local/bin/gosu user "$@"
