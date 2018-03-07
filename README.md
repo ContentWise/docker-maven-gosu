@@ -8,7 +8,7 @@ This image is published to [Docker Hub](https://hub.docker.com/r/contentwisetv/m
 
 ## Usage
 
-  docker run --rm -it -e LOCAL_USER_ID=`id -u` -v `pwd`:/workdir -w /workdir contentwisetv/maven-gosu mvn clean install
+    docker run --rm -it -e LOCAL_USER_ID=`id -u` -v `pwd`:/workdir -w /workdir contentwisetv/maven-gosu mvn clean install
 
 ## License
 
