@@ -1,9 +1,9 @@
-FROM maven:3.5.2-jdk-8
+FROM maven:3.3.9-jdk-8
 
 ARG GOSU_VERSION=1.10
-RUN apt-get update && apt-get -y --no-install-recommends install \
-    ca-certificates \
-    curl
+RUN apt-get update && apt-get -y install --no-install-recommends \
+        build-essential && \
+    rm -rf /var/lib/apt/lists/*
 
 # The following is a workaround related to the issue https://github.com/tianon/gosu/issues/39
 RUN for server in ha.pool.sks-keyservers.net \
