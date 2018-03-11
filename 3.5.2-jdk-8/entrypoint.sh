@@ -1,13 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
-# Add local user
-# Either use the LOCAL_USER_ID if passed in at runtime or
-# fallback
+set -e
 
 USER_ID=${LOCAL_USER_ID:-9001}
 
-useradd --shell /bin/bash -u $USER_ID -o -c "" -M -d $HOME user
+useradd --shell /bin/bash -u $USER_ID -o -c "" -M -d $LOCAL_USER_HOME user
 
-chown user:user $HOME
+chown user:user $LOCAL_USER_HOME
 
-exec /usr/local/bin/gosu user "$@"
+if [ "$1" = 'mvn' ]; then
+    exec /usr/local/bin/gosu user "$@"
+fi
+
+exec "$@"
