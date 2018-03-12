@@ -23,10 +23,3 @@ RUN apk update && apk add --no-cache --virtual .gosu-deps \
     gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu && \
     chmod +x /usr/local/bin/gosu && \
     apk del .gosu-deps
-
-ENV LOCAL_USER_HOME=/home/user
-RUN mkdir -p $LOCAL_USER_HOME
-
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["mvn"]
