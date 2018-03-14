@@ -1,14 +1,18 @@
 FROM maven:3.5.3-jdk-8-alpine
 
 ARG GOSU_VERSION=1.10
-
 RUN apk update && apk add --no-cache --virtual .gosu-deps \
         dpkg \
         gnupg \
         openssl && \
     apk add --no-cache \
+        build-base \
+        git \
+        linux-headers \
         make \
-        openssh-client && \
+        openssh-client \
+        python \
+        shadow && \
     for server in ha.pool.sks-keyservers.net \
         hkp://p80.pool.sks-keyservers.net:80 \
         keyserver.ubuntu.com \
