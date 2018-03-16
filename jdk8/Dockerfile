@@ -1,7 +1,8 @@
 FROM maven:3.5.3-jdk-8
 ARG GOSU_VERSION=1.10
 RUN apt-get update && apt-get install -y \
-        build-essential && \
+        build-essential \
+        libxml2-utils && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN for server in ha.pool.sks-keyservers.net \
         hkp://p80.pool.sks-keyservers.net:80 \

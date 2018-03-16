@@ -6,7 +6,8 @@ RUN apk update && apk add --no-cache --virtual .gosu-deps \
         gnupg \
         openssl && \
     apk add --no-cache \
-        build-base && \
+        build-base \
+        libxml2-utils && \
     for server in ha.pool.sks-keyservers.net \
         hkp://p80.pool.sks-keyservers.net:80 \
         keyserver.ubuntu.com \
