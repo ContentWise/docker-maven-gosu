@@ -1,4 +1,4 @@
-FROM maven:3.5.4-jdk-8
+FROM maven:3-jdk-8
 ARG GOSU_VERSION=1.10
 RUN apt-get update && apt-get install -y \
         build-essential \
